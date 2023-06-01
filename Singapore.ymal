@@ -10,7 +10,7 @@ secret: ''
 proxies:
   - name: Singapore_2
     type: vmess
-    server: 38.54.16.50
+    server: 38.54.119.210
     port: 23740
     uuid: f186403a-92da-4eb1-8955-1f6d437525a7
     alterId: 0
