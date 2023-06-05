@@ -18,12 +18,23 @@ proxies:
     network: ws
     ws-path: /
     tls: false
+  - name: Singapore_3
+    type: vmess
+    server: 38.54.119.210
+    port: 54344
+    uuid: b64dcc89-41dc-455d-a193-a5fb9ba07d74
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-path: /
+    tls: false
 
 proxy-groups:
   - name: Proxy
     type: select
     proxies:
       - Singapore_2
+      - Singapore_3
 
 rules:
   - GEOIP,cn,DIRECT
