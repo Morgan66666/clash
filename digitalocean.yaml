@@ -1,0 +1,34 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+allow-lan: false
+mode: Rule
+log-level: info
+external-controller: 0.0.0.0:9090
+secret: ''
+
+proxies:
+  - name: Singapore
+    type: vmess
+    server: 159.223.48.227
+    port: 18436
+    uuid: 08f5a69b-536b-49ee-b26f-48a7f2171c33
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-path: /
+    tls: false
+
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - Singapore
+
+rules:
+  - GEOIP,cn,DIRECT
+  - DOMAIN-KEYWORD,sustech,DIRECT
+  - DOMAIN-SUFFIX,google.com,Proxy
+  - DOMAIN-KEYWORD,facebook,Proxy
+  - DOMAIN-KEYWORD,openai,Proxy
+  - MATCH,Proxy
